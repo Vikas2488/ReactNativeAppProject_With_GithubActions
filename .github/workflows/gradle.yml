@@ -21,7 +21,7 @@ jobs:
     steps:
     
     - name: ls
-      run: ls
+      run: ls /home/runner/work/vikas-ready-project
     
     - name: ls
       run: pwd
@@ -36,8 +36,8 @@ jobs:
         
       env:
         SDK_URL: "https://dl.google.com/android/repository/commandlinetools-linux-8512546_latest.zip"
-        ANDROID_HOME: "/usr/local/android-sdk"
-        sdk_root: "/usr/local/android-sdk"
+        ANDROID_HOME: "/home/runner/work/vikas-ready-project/android-sdk"
+        sdk_root: "/home/runner/work/vikas-ready-project/android-sdk"
         ANDROID_VERSION: 31
         
     - name : android
@@ -49,16 +49,9 @@ jobs:
         
       env:
         SDK_URL: "https://dl.google.com/android/repository/commandlinetools-linux-8512546_latest.zip"
-        ANDROID_HOME: "/usr/local/android-sdk"
-        sdk_root: "/usr/local/android-sdk"
+        ANDROID_HOME: "/home/runner/work/vikas-ready-project/android-sdk"
+        sdk_root: "/home/runner/work/vikas-ready-project/android-sdk"
         ANDROID_VERSION: 31
-    - name : ls
-      run: |
-        ls
-        pwd
-        ll
-        ls /usr/local/android-sdk
-        ls /usr/local
     
     - name: Grant Permission to Execute
       run: chmod +x gradlew
