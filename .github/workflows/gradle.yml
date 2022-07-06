@@ -13,9 +13,6 @@ on:
   pull_request:
     branches: [ "main" ]
 
-permissions:
-  contents: read
-
 jobs:
   build:
 
@@ -24,8 +21,10 @@ jobs:
     steps:
     
     - name: ls
-      run: |
-        ls
+      run: ls
+    
+    - name: ls
+      run: pwd
     
     - name: Configure android
       run: |
