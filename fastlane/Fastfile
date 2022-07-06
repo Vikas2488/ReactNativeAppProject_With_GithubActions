@@ -1,0 +1,37 @@
+retry_number = 1
+
+default_platform(:android)
+platform :android do
+  desc "Generate build and upload to firebase"
+  lane :build do
+    gradle(
+      task: "assemble",
+      flavor: ENV['FLAVOR'],
+      build_type: ENV['BUILD_TYPE'],
+      project_dir: ".",
+      properties: {
+        "android.injected.signing.store.file" => ENV['KEYSTORE_FILE'],
+        "android.injected.signing.store.password" => ENV['KEYSTORE_PASS'],
+        "android.injected.signing.key.alias" => ENV['KEY_ALIAS'],
+        "android.injected.signing.key.password" => ENV['KEY_PASS'],
+      }
+    )
+    firebase_app_distribution(
+      app: ENV["FIREBASE_APP_ID"],
+      firebase_cli_token: ENV['FIREBASE_CI_TOKEN'],
+      debug: false
+    )
+    
+  
+  end
+  
+  desc "Clean"
+  lane :clean do
+    puts "Clean lane"
+    gradle(
+      task: 'clean', 
+      project_dir: "./android/"
+    )
+  end
+
+end #android lane

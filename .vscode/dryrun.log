@@ -1,0 +1,6 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/home/mindbowser/POC/android-assignment'
+make: Leaving directory '/home/mindbowser/POC/android-assignment'
+ 
+make: *** No targets specified and no makefile found.  Stop.
+
