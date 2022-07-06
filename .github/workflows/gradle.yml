@@ -25,17 +25,10 @@ jobs:
     - uses: actions/checkout@v3
     - name: Set up JDK 11
       uses: actions/setup-java@v3
-      with:
-        java-version: '11'
-        distribution: 'temurin'
-    - name: Build with Gradle
-      uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
-      with:
-        arguments: build
     
     - name: Configure android
       run: |
-        mkdir "$ANDROID_HOME" .android
+        sudo mkdir "$ANDROID_HOME" .android
         cd "$ANDROID_HOME" \
            && curl -o sdk.zip $SDK_URL \
            && unzip sdk.zip \
