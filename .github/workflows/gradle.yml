@@ -35,6 +35,7 @@ jobs:
     
     - name: Configure android
       run: |
+        mkdir "$ANDROID_HOME" .android
         cd "$ANDROID_HOME" \
            && curl -o sdk.zip $SDK_URL \
            && unzip sdk.zip \
