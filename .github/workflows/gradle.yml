@@ -46,29 +46,29 @@ jobs:
     
     - name: Configure android
       run: |
-        sudo mkdir "$ANDROID_HOME" .android
+        mkdir "$ANDROID_HOME" .android
         cd "$ANDROID_HOME" \
-           && sudo curl -o sdk.zip $SDK_URL \
-           && sudo unzip sdk.zip \
-           && sudo rm sdk.zip
+           && curl -o sdk.zip $SDK_URL \
+           && unzip sdk.zip \
+           && rm sdk.zip
         
       env:
         SDK_URL: "https://dl.google.com/android/repository/commandlinetools-linux-8512546_latest.zip"
-        ANDROID_HOME: "/home/runner/work/vikas-ready-project/android-sdk"
-        sdk_root: "/home/runner/work/vikas-ready-project/android-sdk"
+        ANDROID_HOME: "/home/runner/work/vikas-ready-project/vikas-ready-project/android-sdk"
+        sdk_root: "/home/runner/work/vikas-ready-project/vikas-ready-project/android-sdk"
         ANDROID_VERSION: 31
         
     - name : android
       run: |
-        sudo mkdir "$ANDROID_HOME/licenses"
-        sudo echo "2ccbda4302db862a28ada25aa7425d99dce9462046003c1714b059b5c47970d8" > "$ANDROID_HOME/licenses/android-sdk-license"
-        yes | sudo $ANDROID_HOME/cmdline-tools/bin/sdkmanager --sdk_root={ANDROID_HOME} --licenses
-        sudo $ANDROID_HOME/cmdline-tools/bin/sdkmanager --sdk_root={ANDROID_HOME} --update
+        mkdir "$ANDROID_HOME/licenses"
+        echo "2ccbda4302db862a28ada25aa7425d99dce9462046003c1714b059b5c47970d8" > "$ANDROID_HOME/licenses/android-sdk-license"
+        yes | $ANDROID_HOME/cmdline-tools/bin/sdkmanager --sdk_root={ANDROID_HOME} --licenses
+        $ANDROID_HOME/cmdline-tools/bin/sdkmanager --sdk_root={ANDROID_HOME} --update
         
       env:
         SDK_URL: "https://dl.google.com/android/repository/commandlinetools-linux-8512546_latest.zip"
-        ANDROID_HOME: "/home/runner/work/vikas-ready-project/android-sdk"
-        sdk_root: "/home/runner/work/vikas-ready-project/android-sdk"
+        ANDROID_HOME: "/home/runner/work/vikas-ready-project/vikas-ready-project/android-sdk"
+        sdk_root: "/home/runner/work/vikas-ready-project/vikas-ready-project/android-sdk"
         ANDROID_VERSION: 31
     
     - name: Grant Permission to Execute
