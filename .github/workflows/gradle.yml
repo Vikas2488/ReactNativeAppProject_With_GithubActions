@@ -28,7 +28,8 @@ jobs:
         sudo mkdir "$ANDROID_HOME" .android
         cd "$ANDROID_HOME" \
            && sudo curl -o sdk.zip $SDK_URL \
-           && sudo unzip sdk.zip
+           && sudo unzip sdk.zip \
+           && sudo rm sdk.zip
         
       env:
         SDK_URL: "https://dl.google.com/android/repository/commandlinetools-linux-8512546_latest.zip"
